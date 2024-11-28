@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert en solutions No-Code et Low-Code, je vous accompagne dans votre transformation digitale. Développement d'applications, automatisation de processus et intégration d'IA.">
+    <meta name="keywords" content="no-code, low-code, automatisation, développement, IA, transformation digitale">
+    <title>Product Builder NoCode | Votre Futur Expert en Solutions Low-Code/No-Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #111827;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFB347, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: #9CA3AF;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .bento-item {
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .bento-item > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .bento-item.highlight {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #4F46E5, #7C3AED);
+        }
+
+        .bento-item:nth-child(2) {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+        }
+
+        .bento-item:nth-child(3) {
+            background: linear-gradient(135deg, #EC4899, #DB2777);
+        }
+
+        .bento-item:nth-child(4) {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .bento-item:nth-child(5) {
+            background: linear-gradient(135deg, #6366F1, #4F46E5);
+        }
+
+        .bento-item h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .bento-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .services {
+            margin: 4rem 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4F46E5, #7C3AED);
+        }
+
+        .service-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #F59E0B, #D97706);
+        }
+
+        .service-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #10B981, #059669);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, #10B981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+        }
+
+        .service-card li {
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+            display: flex;
+            align-items: start;
+            line-height: 1.5;
+        }
+
+        .service-card li::before {
+            content: "•";
+            color: #6366f1;
+            margin-right: 0.75rem;
+            font-size: 1.2em;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.25rem;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #4F46E5, #7C3AED);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-item.highlight {
+                grid-column: span 1;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" 
+                 alt="Solutions No-Code innovantes" 
+                 class="header-image"/>
+            <h1>Product Builder No-Code & IA</h1>
+            <p>Développeur et futur expert en solutions No-Code/Low-Code pour accélérer votre transformation digitale</p>
+        </header>
+
+        <div class="bento-grid">
+            <div class="bento-item highlight">
+                <h2>Formé pour Créer Votre Avenir Digital</h2>
+                <p>Développeur de formation, je me spécialise chez Alegria.academy dans la création d'applications avec les outils No-Code et Low-Code. L'alternance 4j/1j vous permet de bénéficier immédiatement de mes compétences tout en me permettant de les perfectionner.</p>
+                <div class="stats">                    
+                    <div>
+                        <div class="stat">3</div>
+                        <div class="stat-label">Mois de Bootcamp</div>
+                    </div>
+                    <div>
+                        <div class="stat">12</div>
+                        <div class="stat-label">Mois en Alternance</div>
+                    </div>
+                    <div>
+                        <div class="stat">4/1</div>
+                        <div class="stat-label">Jours Entreprise/Formation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <h2>Agilité & Rapidité</h2>
+                <p>Développez et testez de nouvelles solutions en quelques jours plutôt qu'en plusieurs mois. La combinaison code et No-Code permet une itération rapide basée sur vos besoins.</p>
+            </div>
+
+            <div class="bento-item">
+                <h2>Solutions Professionnelles</h2>
+                <p>Créez des applications internes, des automatisations et des outils métier robustes et sécurisés, adaptés aux besoins de votre entreprise.</p>
+            </div>
+
+            <div class="bento-item">
+                <h2>Innovation IA</h2>
+                <p>Intégrez les dernières technologies d'IA dans vos solutions, que ce soit via des plateformes No-Code ou du développement personnalisé pour optimiser vos processus.</p>
+            </div>
+
+            <div class="bento-item">
+                <h2>Rentabilité Immédiate</h2>
+                <p>Réduisez vos coûts de développement tout en augmentant votre efficacité opérationnelle. La combinaison code et No-Code permet un ROI rapide et mesurable.</p>
+            </div>
+        </div>
+
+        <section class="services">
+            <h2>Types de missions</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="service-icon fas fa-robot"></i>
+                    <h3>Automatisation de processus</h3>
+                    <ul>
+                        <li>Automatisation de tâches répétitives</li>
+                        <li>Création de workflows automatisée</li>
+                        <li>Création de bots et d'assistants virtuels</li>
+                        <li>Intégration ou gestion de base de données</li>
+                        <li>Optimisation des processus de ventes et de marketing</li>
+                        <li>Mise en place d'alertes automatiques</li>
+                        <li>Optimisation des processus de communication interne</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="service-icon fas fa-code"></i>
+                    <h3>Création et développement</h3>
+                    <ul>
+                        <li>Conception et développement d'applications internes</li>
+                        <li>Mise en place d'un site web ou d'une boutique en ligne</li>
+                        <li>Intégration d'API et de services tiers</li>
+                        <li>Création de tableaux de bord personnalisés</li>
+                        <li>Développement d'applications d'analyse prédictive</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="service-icon fas fa-chart-line"></i>
+                    <h3>Vos bénéfices</h3>
+                    <ul>
+                        <li>Gain de temps et de productivité significatif</li>
+                        <li>Réduction des risques d'erreurs</li>
+                        <li>Flexibilité et agilité accrues</li>
+                        <li>Prototypage rapide et économique</li>
+                        <li>Solutions sur mesure adaptées à vos besoins</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="cta">
+            <p>Le No Code vous permet d'investir dans l'agilité, la productivité et l'innovation de votre entreprise ! 
+               Si vous souhaitez en savoir plus, n'hésitez pas à me contacter.</p>
+            <a href="#contact" class="cta-button">Recruter Votre Future Expert Digital</a>
+        </div> -->
+    </div>
+</body>
+</html>
